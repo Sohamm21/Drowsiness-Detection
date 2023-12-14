@@ -11,12 +11,12 @@ def start_alarm(sound):
     playsound(sound)
 
 classes = ["yawn", "no_yawn", "close", "open", "drinking", "looking_at_passenger", "reaching_behind", "talking_on_phone_left", "talking_on_phone_right"]
-face_cascade = cv2.CascadeClassifier("data/haarcascade_frontalface_default.xml")
-left_eye_cascade = cv2.CascadeClassifier("data/haarcascade_lefteye_2splits.xml")
-right_eye_cascade = cv2.CascadeClassifier("data/haarcascade_righteye_2splits.xml")
+face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+left_eye_cascade = cv2.CascadeClassifier("haarcascade_lefteye_2splits.xml")
+right_eye_cascade = cv2.CascadeClassifier("haarcascade_righteye_2splits.xml")
 model = load_model("drowiness_main.h5")
 alarm_on = False
-alarm_sound = "data/alarm.mp3"
+alarm_sound = "alarm.mp3"
 
 def sharpen_image(image, factor):
     kernel = np.array([[-1, -1, -1], [-1, 9+factor, -1], [-1, -1, -1]])
